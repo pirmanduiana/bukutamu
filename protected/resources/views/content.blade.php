@@ -1,6 +1,7 @@
 @extends('master')
     @section('pages-content')
       
+
     <div class="col-lg-12 main-content">
         <div class="main-tabs">
             <ul class="nav nav-tabs">
@@ -13,29 +14,41 @@
                     <div id="bukutamu" class="tab-pane fade in active">
                         <div class="content-form-page">
                                 <div class="form-registration">
-                                    <form class="form-horizontal" role="form" method="POST" action="#">
+                                    <form class="form-horizontal" role="form" method="POST" action="{{ action('ContentController@store') }}">
                                     @csrf
                                     <fieldset>
                                         <div class="form-group">
                                             <label for="name" class="control-label">Nama Lengkap</label>
                                             <div class="form-input">
                                                 <i class="fa fa-user icon"></i>
-                                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" placeholder="Nama lengkap" value="{{ old('name') }}"autofocus>
-                                                @if ($errors->has('name'))
+                                                <input id="nama" type="text" class="form-control{{ $errors->has('nama') ? ' is-invalid' : '' }}" name="nama" placeholder="Nama lengkap" value="{{ old('nama') }}"autofocus>
+                                                @if ($errors->has('nama'))
                                                 <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('name') }}</strong>
+                                                    <strong>{{ $errors->first('nama') }}</strong>
                                                 </span>
                                                 @endif
                                             </div>
-                                        </div>                      
+                                        </div>   
+                                         <div class="form-group">
+                                            <label for="asal" class="control-label">Asal</label>
+                                            <div class="form-input">
+                                                <i class="fa fa-building icon"></i>
+                                                <input id="asal" type="text" class="form-control{{ $errors->has('asal') ? ' is-invalid' : '' }}" name="asal" placeholder="Asal instansi / umum" value="{{ old('asal') }}">
+                                                @if ($errors->has('asal'))
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('asal') }}</strong>
+                                                </span>
+                                                @endif
+                                            </div>
+                                        </div>                   
                                         <div class="form-group">
-                                            <label for="ph" class="control-label">No. HP / Telepon</label>
+                                            <label for="no_hp" class="control-label">No. HP / Telepon</label>
                                             <div class="form-input">
                                                 <i class="fa fa-phone icon"></i>
-                                                <input id="ph" type="text" class="form-control{{ $errors->has('ph') ? ' is-invalid' : '' }}" name="ph" placeholder="No. HP / telepon" value="{{ old('ph') }}">
-                                                @if ($errors->has('ph'))
+                                                <input id="no_hp" type="text" class="form-control{{ $errors->has('no_hp') ? ' is-invalid' : '' }}" name="no_hp" placeholder="No. HP / telepon" value="{{ old('no_hp') }}">
+                                                @if ($errors->has('no_hp'))
                                                 <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('ph') }}</strong>
+                                                    <strong>{{ $errors->first('no_hp') }}</strong>
                                                 </span>
                                                 @endif
                                             </div>
@@ -52,18 +65,7 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="asal" class="control-label">Asal</label>
-                                            <div class="form-input">
-                                                <i class="fa fa-building icon"></i>
-                                                <input id="asal" type="text" class="form-control{{ $errors->has('asal') ? ' is-invalid' : '' }}" name="asal" placeholder="Asal instansi / umum" value="{{ old('username') }}">
-                                                @if ($errors->has('asal'))
-                                                <span class="invalid-feedback">
-                                                    <strong>{{ $errors->first('asal') }}</strong>
-                                                </span>
-                                                @endif
-                                            </div>
-                                        </div>
+                                       
                                     </fieldset>
                                     
                                     <div class="button-daftar">                        

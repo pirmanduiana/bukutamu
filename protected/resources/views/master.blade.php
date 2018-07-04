@@ -72,7 +72,7 @@
     @yield('scripts')
     <script type="text/javascript">
         jQuery(document).ready(function() {
-            Layout.init();    
+            // Layout.init();    
             //Layout.initOWL();
             //Layout.initTwitter();
             //Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */

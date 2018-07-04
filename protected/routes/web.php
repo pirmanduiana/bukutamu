@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('content');
 });
+
+Route::resource('/daftar','ContentController');
