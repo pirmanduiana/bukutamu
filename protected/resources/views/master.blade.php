@@ -69,16 +69,7 @@
     {{ Html::script('assets/plugins/bootstrap/js/bootstrap.min.js') }}
     <!-- END CORE PLUGINS -->
 
-    @yield('scripts')
-    <script type="text/javascript">
-        jQuery(document).ready(function() {
-            Layout.init();    
-            //Layout.initOWL();
-            //Layout.initTwitter();
-            //Layout.initFixHeaderWithPreHeader(); /* Switch On Header Fixing (only if you have pre-header) */
-            //Layout.initNavScrolling();    
-        });
-    </script>
+    @yield('scripts')    
     <!-- END PAGE LEVEL JAVASCRIPTS -->
 </body>
 <!-- END BODY -->
