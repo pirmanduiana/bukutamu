@@ -78,6 +78,11 @@
                     <div id="feedback" class="tab-pane fade">
                         <h3>Menu 1</h3>
                         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <div align="center">
+                            {{ HTML::image('assets/images/flat_face.png', 'Flat', ['id'=>'vote_flat','class'=>'','width'=>'50px','height'=>'50px']) }}
+                            &nbsp; &nbsp; | &nbsp; &nbsp; 
+                            {{ HTML::image('assets/images/smile_face.png', 'Flat', ['id'=>'vote_smile','class'=>'','width'=>'50px','height'=>'50px']) }}
+                        </div>
                     </div>
                     <div id="persentase" class="tab-pane fade">
                         <h3>Menu 2</h3>
