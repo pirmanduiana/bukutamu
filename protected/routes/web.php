@@ -17,8 +17,4 @@ Route::resource('/daftar','ContentController');
 
 Route::get('/feedback', function(){
 	return view('tabs-feedback');
-});
-
-Route::get('/statistik', function(){
-	return view('tabs-persentase');
-});
+})->name('feedback');

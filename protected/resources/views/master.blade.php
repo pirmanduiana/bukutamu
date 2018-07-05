@@ -49,8 +49,9 @@
     <!-- BEGIN MAIN CONTENT -->
     <div class="main">
         <div>
-            <!-- contents -->
-            @yield('pages-content')
+            <div class="main-content">
+                @yield('tabs')
+            </div>
         </div>
     </div>
     <!-- END MAIN -->
