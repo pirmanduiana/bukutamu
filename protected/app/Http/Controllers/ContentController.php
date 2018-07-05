@@ -35,6 +35,8 @@ class ContentController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validatePengaduan($request);
+
         $content = new content();
         $content->nama = $request->nama;
         $content->email = $request->email;
@@ -43,6 +45,14 @@ class ContentController extends Controller
         $content->save();  
 
         return redirect('daftar')->with('status','sukses'); 
+    }
+
+    public function validatePengaduan(Request $request)
+    {
+        return $this->validate($request, [
+            'nama' => 'required',
+            'asal' => 'required'
+        ]);
     }
 
     /**
