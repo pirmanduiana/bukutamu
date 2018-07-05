@@ -1,8 +1,7 @@
 
- $(document).ready(function(){  
+$(document).ready(function(){
 
-  $(document).on('submit', '#tambah', function() {
-
+    $(document).on('submit', '#tambah', function() {
         $.confirm({
             columnClass: 'col-md-6 col-md-offset-3',
             icon: 'fa fa-user',
@@ -13,23 +12,11 @@
             typeAnimated: true,
             buttons: {
                 tutup: function () {
-                  text: 'Tutup'
+                    text: 'Tutup'
                 }
             }
 
         });
+    });
 
-  });
-
-
-
-
-
-});//end doc ready //end doc ready //end doc ready //end doc ready //end doc ready //end doc ready
-
-
-
-
-
-
-
+});

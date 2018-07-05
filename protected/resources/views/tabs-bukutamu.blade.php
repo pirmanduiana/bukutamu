@@ -80,3 +80,7 @@
         </div>
     </div>
 @endsection
+
+@section('scripts')            
+    {{ Html::script('assets/js/main.js') }}
+@endsection

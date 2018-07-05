@@ -71,6 +71,7 @@
     {{ Html::script('assets/plugins/jquery-migrate.min.js') }}
     <!-- <script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> -->
     {{ Html::script('assets/plugins/bootstrap/js/bootstrap.min.js') }}
+    {{ Html::script('assets/js/jquery-confirm-master/dist/jquery-confirm.min.js') }}
     <!-- END CORE PLUGINS -->
 
     @yield('scripts')
