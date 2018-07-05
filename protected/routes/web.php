@@ -12,7 +12,4 @@
 */
 
 Route::resource('/daftar','ContentController');
-
-Route::get('/feedback', function(){
-	return view('tabs-feedback');
-})->name('feedback');
+Route::resource('/feedback','FeedbackController');
