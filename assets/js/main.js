@@ -1,56 +1,54 @@
 
 $(document).ready(function(){
 
+
+
     $(document).on('submit', '#tambah', function() {
-        $.confirm({
-            columnClass: 'col-md-6 col-md-offset-3',
-            icon: 'fa fa-user',
-            title: 'Berhasil Menyimpan Data',
-            content: 'Terima Kasih Atas Partisipasi Anda.',
-            autoClose: 'tutup|10000',
-            type: 'dark',
-            typeAnimated: true,
-            buttons: {
-                tutup: function () {
-                    text: 'Tutup'
+                // post the data from the form
+
+  
+    $('.overlay').css('display','block');
+
+
+     var nama = $('#nama').val();
+     var asal = $('#asal').val();
+    $.post("daftar", $(this).serialize())
+       
+        .done(function(data) {
+
+            $.confirm({
+                columnClass: 'col-md-6 col-md-offset-3',
+                icon: 'fa fa-check',
+                title: 'Berhasil Menyimpan Data',
+                content: 'Terima Kasih Atas Partisipasi Anda.',
+                autoClose: 'tutup|3000',
+                type: 'dark',
+                typeAnimated: true,
+                buttons: {
+                    tutup: function () {
+                        text: 'Tutup'
+                    }
                 }
+            });
+             $('#tambah')[0].reset();
+                
+        })
+          .fail(function(data) {
+            if(nama == ''){
+                
+
+                $( '.aa' ).text( "Silahkan Lengkapi Form Nama Anda !" ).show().fadeOut( 5000 );
+                 // event.preventDefault();
+                // $('#error').before('<span class="error"> Form Nama Harus Diisi !</span>');
+            }else if(asal == ''){
+                $( '.bb' ).text( "Silahkan Lengkapi Form Asal Anda !" ).show().fadeOut( 5000 );
             }
-        });
+
+          });
+            
+    return false;
     });
 
 
-    // $("#submits").on("click", function(){
-    //     tambah.submit();
-    // });
-
 
 });
-
-// var tambah = {
-//     "submit" : function(voted){ 
-//         $.ajax({
-//             url: Url,
-//             dataType: 'json',
-//             method: 'post',
-//             data: {daftar: voted}            
-//         })
-//         .done(function (response) {
-//             if (response.success) {
-//                 $.confirm({
-//                     title: 'Info',
-//                     content: response.message,
-//                     autoClose: 'Tutup|2000',
-//                     buttons: {                        
-//                         "Tutup": function () {                        
-//                         }
-//                     }
-//                 });
-//             }
-//         })
-//         .fail(function(xhr){
-//             // console.log(xhr);
-//         });
-
-//     }
-// };
-

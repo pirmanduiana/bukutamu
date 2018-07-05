@@ -1,5 +1,15 @@
 @extends('master')
 @section('tabs')
+
+<style type="text/css">
+    .aa{
+        color: red;
+    }
+     .bb{
+        color: red;
+    }
+</style>
+
     <div class="main-tabs">
         <ul class="nav nav-tabs">
                 <li class="active"><a href="{{ route('daftar.index') }}">Buku Tamu</a></li>
@@ -10,26 +20,27 @@
                 
                     <div class="content-form-page">
                         <div class="form-registration">
-                            <form class="form-horizontal" role="form" method="POST"  id="tambah">
-                            @csrf
+                        {!! Form::open(['id' => 'tambah','class' => 'form-horizontal','role' => 'form']) !!}
 
+                                    
+                                   
+                                       
+                            <b><div class="aa"> </div></b>
+                            <b><div class="bb" align="right"> </div></b>
 
-                            @if ( ($errors->has('asal')) || ($errors->has('nama')) )
-                                    <div class="alert alert-danger fade in alert-dismissible">
-                                        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
-                                        <p><strong>{{ $errors->first('nama') }}</strong></p>
-                                        <p><strong>{{ $errors->first('asal') }}</strong></p>
-                                    </div>
-                            @endif
-
-                                     
-                            <div class="form-bracket">
+                                 
+                            <div class="form-bracket" id="error">
 
                                 <div class="form-group first">
                                     <label for="name" class="control-label">Nama Lengkap</label>
                                     <div class="form-input">
                                         <i class="fa fa-user icon"></i>
-                                        <input id="nama" type="text" class="form-control{{ $errors->has('nama') ? ' is-invalid' : '' }}" name="nama" placeholder="Nama lengkap" value="{{ old('nama') }}"autofocus>
+                                        <input id="nama" type="text" class="form-control{{ $errors->has('nama') ? ' is-invalid' : '' }}" name="nama" placeholder="Nama lengkap" value="{{ old('nama') }}"autofocus  >
+                                        @if ($errors->has('nama'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('nama') }}</strong>
+                                        </span>
+                                        @endif
                                     </div>
                                 </div>
 
@@ -39,6 +50,11 @@
                                     <div class="form-input">
                                         <i class="fa fa-building icon"></i>
                                         <input id="asal" type="text" class="form-control{{ $errors->has('asal') ? ' is-invalid' : '' }}" name="asal" placeholder="Asal instansi / umum" value="{{ old('asal') }}">
+                                        @if ($errors->has('asal'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('asal') }}</strong>
+                                        </span>
+                                        @endif
                                       
                                     </div>
                                 </div>
@@ -73,10 +89,11 @@
                                 </div>
                             </div>
                             
-                            <div class="button-daftar">                        
-                                <button type="submit" class="btn btn-primary btn-daftar">Daftar</button>
+                            <div class="button-daftar">
+                                
+                                <button type="submit" class="btn btn-primary btn-daftar" id="submits">Daftar</button>
                             </div>
-                            </form>                  
+                            {!! Form::close() !!}                 
                         </div>
                     </div>
 

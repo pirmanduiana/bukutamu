@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\content;
+use Response;
 
 class ContentController extends Controller
 {
@@ -44,9 +45,8 @@ class ContentController extends Controller
         $content->asal = $request->asal;
         $content->save();  
 
-        return redirect('daftar')->with('status','sukses'); 
+        // return redirect('daftar')->with('success',true); 
 
-        // content::create($request->all());
         // return response()->json([
         //     'success' => true,
         //     'message' => 'Terima kasih atas partisipasi anda',
