@@ -60,6 +60,9 @@
         @include('footer')
     <!-- END FOOTER --> 
 
+    <button onclick="#" id="btn-fullscreen"><i class="fa fa-expand icon"></i></button>
+
+
     <!-- Load javascripts at bottom, this will reduce page load time -->
     <!-- BEGIN CORE PLUGINS (REQUIRED FOR ALL PAGES) --> 
     <!-- <script src="assets/plugins/jquery.min.js" type="text/javascript"></script> -->

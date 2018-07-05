@@ -11,8 +11,6 @@
 |
 */
 
-
-
 Route::resource('/daftar','ContentController');
 
 Route::get('/feedback', function(){
