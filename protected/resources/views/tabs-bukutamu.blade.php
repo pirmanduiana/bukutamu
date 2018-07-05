@@ -14,19 +14,6 @@
                             @csrf
 
 
-<!--                             @if ($errors->has('nama'))
-                            <div class="alert alert-danger">
-                                <strong>{{ $errors->first('nama') }}</strong>
-                            </div>
-                            @endif
-
-                                    @if ($errors->has('asal'))
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $errors->first('asal') }}</strong>
-                                        </div>
-                                    @endif -->
-
-
                             @if ( ($errors->has('asal')) || ($errors->has('nama')) )
                                     <div class="alert alert-danger fade in alert-dismissible">
                                         <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
@@ -99,4 +86,9 @@
             </div>
         </div>
     </div>
+@endsection
+
+
+@section('scripts')            
+    {{ Html::script('assets/js/main.js') }}
 @endsection

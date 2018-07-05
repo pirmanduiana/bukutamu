@@ -60,7 +60,7 @@
         @include('footer')
     <!-- END FOOTER --> 
 
-    <button onclick="#" id="btn-fullscreen"><i class="fa fa-expand icon"></i></button>
+    <button onclick="toggleFullScreen(this);" id="btn-fullscreen"><i class="fa fa-expand icon"></i></button>
 
 
     <!-- Load javascripts at bottom, this will reduce page load time -->
@@ -73,6 +73,9 @@
     {{ Html::script('assets/plugins/bootstrap/js/bootstrap.min.js') }}
     {{ Html::script('assets/js/jquery-confirm-master/dist/jquery-confirm.min.js') }}
     <!-- END CORE PLUGINS -->
+
+    {{ Html::script('assets/js/full.js') }}
+
 
     @yield('scripts')
 </body>

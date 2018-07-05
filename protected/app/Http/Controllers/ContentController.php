@@ -45,6 +45,13 @@ class ContentController extends Controller
         $content->save();  
 
         return redirect('daftar')->with('status','sukses'); 
+
+        // content::create($request->all());
+        // return response()->json([
+        //     'success' => true,
+        //     'message' => 'Terima kasih atas partisipasi anda',
+        //     'data' => $request->all()
+        // ]);
     }
 
     public function validatePengaduan(Request $request)

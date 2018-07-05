@@ -19,4 +19,38 @@ $(document).ready(function(){
     });
 
 
+    // $("#submits").on("click", function(){
+    //     tambah.submit();
+    // });
+
+
 });
+
+// var tambah = {
+//     "submit" : function(voted){ 
+//         $.ajax({
+//             url: Url,
+//             dataType: 'json',
+//             method: 'post',
+//             data: {daftar: voted}            
+//         })
+//         .done(function (response) {
+//             if (response.success) {
+//                 $.confirm({
+//                     title: 'Info',
+//                     content: response.message,
+//                     autoClose: 'Tutup|2000',
+//                     buttons: {                        
+//                         "Tutup": function () {                        
+//                         }
+//                     }
+//                 });
+//             }
+//         })
+//         .fail(function(xhr){
+//             // console.log(xhr);
+//         });
+
+//     }
+// };
+
