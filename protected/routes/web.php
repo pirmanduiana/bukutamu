@@ -12,4 +12,5 @@
 */
 
 Route::resource('/daftar','ContentController');
+Route::resource('/lokasi','ContentController@lokasi');
 Route::resource('/feedback','FeedbackController');

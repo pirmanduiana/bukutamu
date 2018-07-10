@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\content;
+use App\lokasi;
+
 use Response;
 
 class ContentController extends Controller
@@ -13,9 +15,11 @@ class ContentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        return view('tabs-bukutamu');
+        $lokasi = lokasi::where('flag_aktif','=',1)->first();
+        return view('tabs-bukutamu',compact('lokasi'));
     }
 
     /**
@@ -38,11 +42,14 @@ class ContentController extends Controller
     {
         $this->validatePengaduan($request);
 
+        $lokasi = lokasi::where('flag_aktif','=',1)->first();
+
         $content = new content();
         $content->nama = $request->nama;
         $content->email = $request->email;
         $content->no_hp = $request->no_hp;
         $content->asal = $request->asal;
+        $content->lokasi_id = $lokasi->id;
         $content->save();  
 
         // return redirect('daftar')->with('success',true); 

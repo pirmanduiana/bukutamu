@@ -2,10 +2,12 @@
 <html lang="en">
     
 <head>
+  <title>Buku Tamu System</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <link rel="shortcut icon" href="{{ asset('assets/theme/html/favicon.ico') }}" />
+  <link rel="shortcut icon" href="{{ url('assets/theme/html/favicon.ico') }}" type="image/x-icon"/>
+  <link rel="icon" href="{{ url('assets/theme/html/favicon.ico') }}" type="image/x-icon" />
 
   <!-- Fonts START -->
   {{ Html::style('assets/googleapis-font.css') }}
@@ -37,6 +39,7 @@
   
   <!-- jquery confirm -->
   {{ Html::style('assets/js/jquery-confirm-master/dist/jquery-confirm.min.css') }}
+
 </head>
 
 <!-- Body BEGIN -->

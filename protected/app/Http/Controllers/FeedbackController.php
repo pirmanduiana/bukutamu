@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\feedback;
+use App\lokasi;
 use Response;
 
 class FeedbackController extends Controller
@@ -15,8 +16,9 @@ class FeedbackController extends Controller
      */
     public function index()
     {
+        $lokasi = lokasi::where('flag_aktif','=',1)->first();
         //
-        return view('tabs-feedback');
+        return view('tabs-feedback',compact('lokasi'));
     }
 
     /**
@@ -38,7 +40,14 @@ class FeedbackController extends Controller
     public function store(Request $request)
     {
         //
-        feedback::create($request->all());
+
+        $lokasi = lokasi::where('flag_aktif','=',1)->first();
+
+        $feedback = new feedback();
+        $feedback->feedback = $request->feedback;
+        $feedback->lokasi_id = $lokasi->id;
+        $feedback->save();
+
         return response()->json([
             'success' => true,
             'message' => 'Terima kasih atas partisipasi anda',
