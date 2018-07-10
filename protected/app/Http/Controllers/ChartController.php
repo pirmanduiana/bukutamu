@@ -3,23 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\content;
-use App\lokasi;
-
 use Response;
 
-class ContentController extends Controller
+class ChartController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        $lokasi = lokasi::where('flag_aktif','=',1)->first();
-        return view('tabs-bukutamu',compact('lokasi'));
+        $countTamu = DB::table('t_tamu')
+                ->select('t_tamu.id as tamu')
+                ->whereDay('created_at', '=', date('d'))
+                ->count();
+        
+        $countFB = DB::table("t_feedbackid")
+                ->select('t_feedbackid.id as fb')
+                ->whereDay('created_at', '=', date('d'))
+                ->count();
+
+        return view('tabs-persentase', ['countTamu' => $countTamu, 'countFB' => $countFB]);
     }
 
     /**
@@ -32,6 +39,11 @@ class ContentController extends Controller
         //
     }
 
+    public function getchart(request $request)
+    {
+        
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -40,33 +52,12 @@ class ContentController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validatePengaduan($request);
-
-        $lokasi = lokasi::where('flag_aktif','=',1)->first();
-
-        $content = new content();
-        $content->nama = $request->nama;
-        $content->email = $request->email;
-        $content->no_hp = $request->no_hp;
-        $content->asal = $request->asal;
-        $content->lokasi_id = $lokasi->id;
-        $content->save();  
-
-        // return redirect('daftar')->with('success',true); 
-
-        // return response()->json([
-        //     'success' => true,
-        //     'message' => 'Terima kasih atas partisipasi anda',
-        //     'data' => $request->all()
-        // ]);
+        
     }
 
     public function validatePengaduan(Request $request)
     {
-        return $this->validate($request, [
-            'nama' => 'required',
-            'asal' => 'required'
-        ]);
+        
     }
 
     /**

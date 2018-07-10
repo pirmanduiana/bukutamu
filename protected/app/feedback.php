@@ -8,5 +8,5 @@ class feedback extends Model
 {
     //
     protected $table = "t_feedbackid";
-    protected $fillable = ['feedback'];
+    protected $fillable = ['feedback','lokasi_id'];
 }

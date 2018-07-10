@@ -12,8 +12,8 @@
 
     <div class="main-tabs">
         <ul class="nav nav-tabs">
-                <li class="active"><a href="{{ route('daftar.index') }}">Buku Tamu</a></li>
-                <li><a href="{{ route('feedback.index') }}">Feedback</a></li>
+                <li class="active"><a href="javascript:void(0)">Silahkan Isi Buku Tamu Pameran Kami</a></li>
+                <!-- <li><a href="{{ route('feedback.index') }}">Feedback</a></li> -->
         </ul>
         <div class="tab-content">
             <div id="bukutamu" class="tab-pane fade in active">
