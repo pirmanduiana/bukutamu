@@ -90,6 +90,7 @@ a, p {
     background-color: transparent;
     color:#666666;
     font-size:1.25em;
+    padding: 0 0 5px;
 }
 
 .p-pembangunan .main-content .main-tabs .nav-tabs li a:hover {
