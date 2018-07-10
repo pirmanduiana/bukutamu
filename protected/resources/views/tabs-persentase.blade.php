@@ -10,7 +10,7 @@
 
     <div class="main-tabs">
         <ul class="nav nav-tabs">
-                <li class="active"><a href="javascript:void(0)">Ini Judulnya Belakangan Aja</a></li>
+                <li class="active"><a href="javascript:void(0)">Informasi Jumlah Pengunjung dan Feedback</a></li>
                 <!-- <li><a href="{{ route('feedback.index') }}">Feedback</a></li> -->
         </ul>
         <div class="tab-content">
