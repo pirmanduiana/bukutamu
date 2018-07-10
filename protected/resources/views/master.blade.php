@@ -27,6 +27,10 @@
   {{ Html::style('assets//plugins/owl.carousel/assets/owl.carousel.css') }}
   <!-- Page level plugin styles END -->
 
+  <!--adminelte style-->
+  {{ Html::style('assets/admin-lte/AdminLTE.css') }}
+  {{ Html::style('assets/admin-lte/AdminLTE.min.css') }}
+
   <!-- Theme styles START -->
   <!-- <link href="assets/corporate/css/style.css" rel="stylesheet"> -->
   {{ Html::style('assets/style.css') }}
@@ -72,6 +76,13 @@
     <!-- <script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script> -->
     {{ Html::script('assets/plugins/bootstrap/js/bootstrap.min.js') }}
     {{ Html::script('assets/js/jquery-confirm-master/dist/jquery-confirm.min.js') }}
+
+    <!-- chartjs -->
+    {{ Html::script('assets/plugins/chartjs/Chart.bundle.js') }}
+    {{ Html::script('assets/plugins/chartjs/Chart.bundle.min.js') }}
+    {{ Html::script('assets/plugins/chartjs/Chart.js') }}
+    {{ Html::script('assets/plugins/chartjs/Chart.min.js') }}
+
     <!-- END CORE PLUGINS -->
 
     {{ Html::script('assets/js/full.js') }}

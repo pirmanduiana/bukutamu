@@ -13,3 +13,4 @@
 
 Route::resource('/daftar','ContentController');
 Route::resource('/feedback','FeedbackController');
+Route::resource('/chart', 'ChartController');
