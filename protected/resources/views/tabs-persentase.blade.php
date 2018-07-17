@@ -10,7 +10,7 @@
 
     <div class="main-tabs">
         <ul class="nav nav-tabs">
-                <li class="active"><a href="javascript:void(0)">Ini Judulnya Belakangan Aja</a></li>
+                <li class="active"><a href="javascript:void(0)">PRESENTASE PENGUNJUNG</a></li>
                 <!-- <li><a href="{{ route('feedback.index') }}">Feedback</a></li> -->
         </ul>
         <div class="tab-content">
@@ -45,7 +45,40 @@
                         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                 </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-xs-6 col-lg-offset-2">
+                        <!-- small box -->
+                        <div class="small-box bg-green">
+                        <div class="inner">
+                        <h3 class="aa">{{ $countsmile }}</h3>
+
+                        <p>POLLING SUARA PUAS</p>
+                        </div>
+                        <div class="icon">
+                        <i class="fa fa-thumbs-up"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
                 </div>
+
+                <div class="col-lg-4 col-xs-6">
+                        <!-- small box -->
+                        <div class="small-box bg-green">
+                        <div class="inner">
+                        <h3 class="aa">{{ $countflat }}</h3>
+
+                        <p>POLLING SUARA CUKUP</p>
+                        </div>
+                        <div class="icon">
+                        <i class="fa fa-thumbs-up"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        </div>
+                </div>
+            </div>
+
                 <!-- /.row -->
                 <!-- <div id="bukutamu" class="tab-pane fade in active">
                         <div class="row">

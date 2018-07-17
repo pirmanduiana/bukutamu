@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\content;
+use App\lokasi;
 use Response;
 
 class ChartController extends Controller
@@ -16,6 +17,8 @@ class ChartController extends Controller
      */
     public function index()
     {
+        $lokasi = lokasi::where('flag_aktif','=',1)->first();
+
         $countTamu = DB::table('t_tamu')
                 ->select('t_tamu.id as tamu')
                 ->whereDay('created_at', '=', date('d'))
@@ -26,7 +29,18 @@ class ChartController extends Controller
                 ->whereDay('created_at', '=', date('d'))
                 ->count();
 
-        return view('tabs-persentase', ['countTamu' => $countTamu, 'countFB' => $countFB]);
+        $countsmile = DB::table("t_feedbackid")
+                ->select('t_feedbackid.feedback as fb')
+                ->where('feedback', '=', 1)
+                ->count();
+
+        $countflat = DB::table("t_feedbackid")
+                ->select('t_feedbackid.feedback as fb')
+                ->where('feedback', '=', 0)
+                ->count();
+
+
+        return view('tabs-persentase', ['countTamu' => $countTamu, 'countFB' => $countFB, 'lokasi' => $lokasi, 'countsmile' => $countsmile, 'countflat' => $countflat]);
     }
 
     /**

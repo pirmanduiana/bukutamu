@@ -48,24 +48,22 @@ class ContentController extends Controller
         $content->nama = $request->nama;
         $content->email = $request->email;
         $content->no_hp = $request->no_hp;
-        $content->asal = $request->asal;
+
+        if(!empty($request->asal)){
+            $content->asal = $request->asal;
+        }else{
+            $content->asal = "umum";  
+        }
+
         $content->lokasi_id = $lokasi->id;
         $content->save();  
 
-        // return redirect('daftar')->with('success',true); 
-
-        // return response()->json([
-        //     'success' => true,
-        //     'message' => 'Terima kasih atas partisipasi anda',
-        //     'data' => $request->all()
-        // ]);
     }
 
     public function validatePengaduan(Request $request)
     {
         return $this->validate($request, [
-            'nama' => 'required',
-            'asal' => 'required'
+            'nama' => 'required'
         ]);
     }
 
