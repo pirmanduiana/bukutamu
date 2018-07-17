@@ -18,14 +18,15 @@ class ChartController extends Controller
     public function index()
     {
         $lokasi = lokasi::where('flag_aktif','=',1)->first();
-
         $countTamu = DB::table('t_tamu')
                 ->select('t_tamu.id as tamu')
+                ->where('lokasi_id','=',$lokasi->id)
                 ->whereDay('created_at', '=', date('d'))
                 ->count();
         
         $countFB = DB::table("t_feedbackid")
                 ->select('t_feedbackid.id as fb')
+                ->where('lokasi_id','=',$lokasi->id)
                 ->whereDay('created_at', '=', date('d'))
                 ->count();
 
@@ -41,6 +42,7 @@ class ChartController extends Controller
 
 
         return view('tabs-persentase', ['countTamu' => $countTamu, 'countFB' => $countFB, 'lokasi' => $lokasi, 'countsmile' => $countsmile, 'countflat' => $countflat]);
+
     }
 
     /**
