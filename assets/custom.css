@@ -196,6 +196,22 @@ a, p {
     width:100%;
 }
 
+.p-pembangunan .main-tabs .tab-content .captions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+    padding: 0 15%;
+    margin-top: 40px;
+}
+
+.p-pembangunan .main-tabs .tab-content .captions span {
+    color: orange;
+    font-family: inherit;
+    font-size: 30px;
+    margin: 0 auto;
+}
+
 /* Footer */
 
 .footer {
