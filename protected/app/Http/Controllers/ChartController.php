@@ -32,13 +32,20 @@ class ChartController extends Controller
 
         $countsmile = DB::table("t_feedbackid")
                 ->select('t_feedbackid.feedback as fb')
+                ->where('lokasi_id','=',$lokasi->id)
                 ->where('feedback', '=', 1)
                 ->count();
 
         $countflat = DB::table("t_feedbackid")
                 ->select('t_feedbackid.feedback as fb')
+                ->where('lokasi_id','=',$lokasi->id)
                 ->where('feedback', '=', 0)
                 ->count();
+
+        // $feedback = DB::table("t_feedbackid")
+        //             ->select('id', )
+
+        
 
 
         return view('tabs-persentase', ['countTamu' => $countTamu, 'countFB' => $countFB, 'lokasi' => $lokasi, 'countsmile' => $countsmile, 'countflat' => $countflat]);

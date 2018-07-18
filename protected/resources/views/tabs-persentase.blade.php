@@ -28,7 +28,9 @@
                         <div class="icon">
                         <i class="fa fa-users"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </a>
                         </div>
                    </div>
                 <!-- ./col -->
@@ -43,7 +45,9 @@
                         <div class="icon">
                         <i class="fa fa-thumbs-up"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer"> 
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </a>
                         </div>
                 </div>
             </div>
@@ -51,49 +55,51 @@
             <div class="row">
                 <div class="col-lg-4 col-xs-6 col-lg-offset-2">
                         <!-- small box -->
-                        <div class="small-box bg-green">
+                        <div class="small-box bg-yellow">
                         <div class="inner">
                         <h3 class="aa">{{ $countsmile }}</h3>
 
                         <p>POLLING SUARA PUAS</p>
                         </div>
                         <div class="icon">
-                        <i class="fa fa-thumbs-up"></i>
+                        <i class="fa fa-smile-o"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer"> 
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </a>
                         </div>
                 </div>
 
                 <div class="col-lg-4 col-xs-6">
                         <!-- small box -->
-                        <div class="small-box bg-green">
+                        <div class="small-box bg-red">
                         <div class="inner">
                         <h3 class="aa">{{ $countflat }}</h3>
 
                         <p>POLLING SUARA CUKUP</p>
                         </div>
                         <div class="icon">
-                        <i class="fa fa-thumbs-up"></i>
+                        <i class="fa fa-meh-o"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="#" class="small-box-footer">
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </a>
                         </div>
                 </div>
             </div>
 
-                <!-- /.row -->
-                <!-- <div id="bukutamu" class="tab-pane fade in active">
-                        <div class="row">
-                            <div class="col-md-10 col-md-offset-1">
-                                <div class="panel panel-default">
-                                     <div class="panel-heading"><b>Charts</b></div>
-                                          <div class="panel-body">
-                                                <canvas id="myChart" height="280" width="600"></canvas>
-                                          </div>
-                                     </div>
+                {{-- <div id="bukutamu" class="tab-pane fade in active">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="panel panel-default">
+                                <div class="panel-heading"><b>Jumlah Feedback</b></div>
+                                <div class="panel-body">
+                                    <canvas id="myChart" height="280" width="600"></canvas>
                                 </div>
-                            </div>      
+                            </div>
                         </div>
-                </div> -->
+                    </div>      
+                </div> --}}
         </div>
     </div>
 @endsection
