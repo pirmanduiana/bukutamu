@@ -42,12 +42,6 @@ class ChartController extends Controller
                 ->where('feedback', '=', 0)
                 ->count();
 
-        // $feedback = DB::table("t_feedbackid")
-        //             ->select('id', )
-
-        
-
-
         return view('tabs-persentase', ['countTamu' => $countTamu, 'countFB' => $countFB, 'lokasi' => $lokasi, 'countsmile' => $countsmile, 'countflat' => $countflat]);
 
     }
@@ -62,9 +56,25 @@ class ChartController extends Controller
         //
     }
 
-    public function getchart(request $request)
+    public function getChart()
     {
-        
+        $feedback = DB::table("t_feedbackid")
+                ->select(DB::raw('DATE(created_at) as tgl'),DB::raw('SUM(feedback = 1) as puas'), DB::raw('SUM(feedback = 0) as cukup'))
+                ->groupBy('tgl')
+                ->get();
+        // $labels = []; $puas = [];
+        // foreach ($feedback as $key=>$value) {
+        //     $labels[] = $value->tgl;
+        //     $puas[] = $value->puas;
+        // }
+
+        // $datas = [];
+        // foreach ($feedback as $key=>$value) {
+        //     $datas [] = $value;
+        // }
+
+        return response()->json($feedback);
+
     }
 
     /**
@@ -75,7 +85,7 @@ class ChartController extends Controller
      */
     public function store(Request $request)
     {
-        
+    
     }
 
     public function validatePengaduan(Request $request)

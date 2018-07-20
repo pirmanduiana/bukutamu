@@ -88,22 +88,64 @@
                 </div>
             </div>
 
-                {{-- <div id="bukutamu" class="tab-pane fade in active">
-                    <div class="row">
-                        <div class="col-md-10 col-md-offset-1">
-                            <div class="panel panel-default">
-                                <div class="panel-heading"><b>Jumlah Feedback</b></div>
-                                <div class="panel-body">
-                                    <canvas id="myChart" height="280" width="600"></canvas>
-                                </div>
-                            </div>
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><b>Grafik Tingkat Kepuasan Kunjungan Pameran</b></div>
+                        <div class="panel-body">
+                               <canvas height="40" width="80" id="myChart"></canvas>
                         </div>
-                    </div>      
-                </div> --}}
+                    </div>
+                </div>
+              </div>
         </div>
     </div>
 @endsection
 
 @section('scripts')            
     {{ Html::script('assets/js/main.js') }}
+    <script type="text/javascript">
+        var url = "{{ url('/getchart') }}";
+        var Dates = new Array();
+        var Satisfies = new Array();
+        var Enoughs = new Array();
+
+        $(document).ready(function(){
+            $.get(url, function(response){
+                response.forEach(function(data){
+                    Dates.push(data.tgl);
+                    Satisfies.push(data.puas);
+                    Enoughs.push(data.cukup);
+                });
+                var ctx = document.getElementById("myChart").getContext("2d");
+                    var data = {
+                    labels: Dates,
+                    datasets: [{
+                        label: "Puas",
+                        backgroundColor: "blue",
+                        data: Satisfies
+                    }, {
+                        label: "Cukup",
+                        backgroundColor: "red",
+                        data: Enoughs
+                    }]
+                    };
+                    var myBarChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: data,
+                    options: {
+                        barValueSpacing: 20,
+                        scales: {
+                        yAxes: [{
+                            ticks: {
+                            min: 0,
+                            }
+                        }]
+                        }
+                    }
+                }); 
+            });
+        });
+    </script>
+
 @endsection

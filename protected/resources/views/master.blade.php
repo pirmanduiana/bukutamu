@@ -85,7 +85,6 @@
     {{ Html::script('assets/plugins/chartjs/Chart.bundle.min.js') }}
     {{ Html::script('assets/plugins/chartjs/Chart.js') }}
     {{ Html::script('assets/plugins/chartjs/Chart.min.js') }}
-
     <!-- END CORE PLUGINS -->
 
     {{ Html::script('assets/js/full.js') }}
