@@ -56,24 +56,33 @@ class ChartController extends Controller
         //
     }
 
-    public function getChart()
+    public function getChartPuas()
     {
+
+        $lokasi = lokasi::where('flag_aktif','=',1)->first();
+
         $feedback = DB::table("t_feedbackid")
                 ->select(DB::raw('DATE(created_at) as tgl'),DB::raw('SUM(feedback = 1) as puas'), DB::raw('SUM(feedback = 0) as cukup'))
+                ->where('lokasi_id','=',$lokasi->id)
                 ->groupBy('tgl')
                 ->get();
-        // $labels = []; $puas = [];
-        // foreach ($feedback as $key=>$value) {
-        //     $labels[] = $value->tgl;
-        //     $puas[] = $value->puas;
-        // }
-
-        // $datas = [];
-        // foreach ($feedback as $key=>$value) {
-        //     $datas [] = $value;
-        // }
 
         return response()->json($feedback);
+
+    }
+
+    public function getChartKunjungan()
+    {
+
+        $lokasi = lokasi::where('flag_aktif','=',1)->first();
+
+        $kunjungan = DB::table('t_tamu')
+                ->select(DB::raw('DATE(created_at) as tgl'), DB::raw('COUNT(id) as total'))
+                ->where('lokasi_id','=',$lokasi->id)
+                ->groupBy('tgl')
+                ->get();
+
+        return response()->json($kunjungan);
 
     }
 

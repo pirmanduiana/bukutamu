@@ -89,7 +89,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-10 col-md-offset-1">
+                <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading"><b>Grafik Tingkat Kepuasan Kunjungan Pameran</b></div>
                         <div class="panel-body">
@@ -97,7 +97,15 @@
                         </div>
                     </div>
                 </div>
-              </div>
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><b>Grafik Tingkat Jumlah Pengunjung Perhari</b></div>
+                        <div class="panel-body">
+                               <canvas height="40" width="80" id="myChart2"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
@@ -128,6 +136,44 @@
                         label: "Cukup",
                         backgroundColor: "red",
                         data: Enoughs
+                    }]
+                    };
+                    var myBarChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: data,
+                    options: {
+                        barValueSpacing: 20,
+                        scales: {
+                        yAxes: [{
+                            ticks: {
+                            min: 0,
+                            }
+                        }]
+                        }
+                    }
+                }); 
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+    var url2 = "{{ url('/getkunjungan') }}";
+        var Tanggals = new Array();
+        var Totals = new Array();
+
+        $(document).ready(function(){
+            $.get(url2, function(response){
+                response.forEach(function(data){
+                    Tanggals.push(data.tgl);
+                    Totals.push(data.total);
+                });
+                var ctx = document.getElementById("myChart2").getContext("2d");
+                    var data = {
+                    labels: Tanggals,
+                    datasets: [{
+                        label: "Jumlah Kunjungan",
+                        backgroundColor: "#01b744",
+                        data: Totals
                     }]
                     };
                     var myBarChart = new Chart(ctx, {
